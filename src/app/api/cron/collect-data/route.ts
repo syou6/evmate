@@ -242,17 +242,17 @@ async function processVehicle(
   await detectChargingSession(
     supabase,
     vehicle.id,
-    vehicleData.charge_state,
-    vehicleData.drive_state,
+    vehicleData.charge_state as ChargeState,
+    vehicleData.drive_state as DriveState,
     previousCache
   );
 
   await detectDrivingTrip(
     supabase,
     vehicle.id,
-    vehicleData.drive_state,
-    vehicleData.vehicle_state,
-    vehicleData.charge_state,
+    vehicleData.drive_state as DriveState,
+    vehicleData.vehicle_state as VehicleState,
+    vehicleData.charge_state as ChargeState,
     previousCache
   );
 

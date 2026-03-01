@@ -635,14 +635,14 @@ export default function BatteryPage() {
   const { vehicleData } = state.data;
   const { charge_state, vehicle_state } = vehicleData;
 
-  const rangeKm = Math.round(charge_state.battery_range * MILES_TO_KM);
-  const odometerKm = Math.round(vehicle_state.odometer * MILES_TO_KM);
+  const rangeKm = Math.round((charge_state?.battery_range ?? 0) * MILES_TO_KM);
+  const odometerKm = Math.round((vehicle_state?.odometer ?? 0) * MILES_TO_KM);
 
   // Derived metrics
-  const maxRangeKm = estimateMaxRangeKm(charge_state.battery_level, rangeKm);
+  const maxRangeKm = estimateMaxRangeKm(charge_state?.battery_level ?? 0, rangeKm);
   const degradation = estimateDegradation(maxRangeKm);
   const cycleCount = estimateCycleCounts(odometerKm);
-  const avgChargePct = charge_state.charge_limit_soc;
+  const avgChargePct = charge_state?.charge_limit_soc ?? 0;
 
   // Mock analysis logs using real odometer/range as anchor
   // TODO: Replace with real historical DB records.
@@ -662,7 +662,7 @@ export default function BatteryPage() {
           <p className="text-base max-w-2xl" style={{ color: "var(--color-txt-dim)" }}>
             Teslaバッテリーの性能と経年劣化に関する詳細な分析。ソフトウェアバージョン{" "}
             <span style={{ color: "var(--color-primary)", fontWeight: 500 }}>
-              v{vehicle_state.car_version}
+              v{vehicle_state?.car_version ?? "—"}
             </span>
             .
           </p>

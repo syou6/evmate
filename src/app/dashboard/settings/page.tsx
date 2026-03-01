@@ -269,7 +269,7 @@ export default function SettingsPage() {
   const displayName =
     state.status === "success"
       ? state.data.vehicleData.display_name ||
-        state.data.vehicleData.vehicle_state.vehicle_name
+        state.data.vehicleData.vehicle_state?.vehicle_name
       : null;
 
   const vinSuffix = vin ? `...${vin.slice(-4)}` : "...????";

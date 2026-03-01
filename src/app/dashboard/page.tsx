@@ -374,14 +374,16 @@ export default function DashboardPage() {
 
   // ── Success ───────────────────────────────────────────────────────────────
   const { vehicle, vehicleData } = state.data;
-  const { charge_state, vehicle_state, climate_state } = vehicleData;
+  const charge_state = vehicleData.charge_state ?? {};
+  const vehicle_state = vehicleData.vehicle_state ?? {};
+  const climate_state = vehicleData.climate_state ?? {};
 
   const isCharging = charge_state.charging_state === "Charging";
   const isAsleep = state.vehicleAsleep || vehicle.state === "asleep";
   const isOnline = vehicle.state === "online" && !isAsleep;
 
-  const rangeKm = Math.round(charge_state.battery_range * MILES_TO_KM);
-  const odometerKm = Math.round(vehicle_state.odometer * MILES_TO_KM);
+  const rangeKm = Math.round((charge_state.battery_range ?? 0) * MILES_TO_KM);
+  const odometerKm = Math.round((vehicle_state.odometer ?? 0) * MILES_TO_KM);
 
   const displayName =
     vehicleData.display_name ||
@@ -566,7 +568,7 @@ export default function DashboardPage() {
               {/* Circular gauge */}
               <div className="mt-6 flex flex-col items-center justify-center gap-4 py-4">
                 <CircularBatteryGauge
-                  level={charge_state.battery_level}
+                  level={charge_state.battery_level ?? 0}
                   isCharging={isCharging}
                 />
 
@@ -794,7 +796,7 @@ export default function DashboardPage() {
               ))}
 
               {/* Minutes to full — only when charging */}
-              {isCharging && charge_state.minutes_to_full_charge > 0 && (
+              {isCharging && (charge_state.minutes_to_full_charge ?? 0) > 0 && (
                 <div className="flex items-center justify-between">
                   <span className="text-sm" style={{ color: "var(--color-txt-mut)" }}>
                     完了まで

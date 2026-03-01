@@ -74,10 +74,10 @@ export interface VehicleData {
   vin: string;
   display_name: string;
   state: string;
-  charge_state: ChargeState;
-  drive_state: DriveState;
-  vehicle_state: VehicleState;
-  climate_state: ClimateState;
+  charge_state: Partial<ChargeState> | null;
+  drive_state: Partial<DriveState> | null;
+  vehicle_state: Partial<VehicleState> | null;
+  climate_state: Partial<ClimateState> | null;
 }
 
 // Dashboard display data
