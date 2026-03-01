@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EV Mate Settings &amp; Account</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                        "surface-dark": "#16262e",
+                        "surface-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom checkbox styles to match theme */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #13a4ec;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #13a4ec;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex flex-col overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-[#233c48] px-10 py-3 bg-surface-light dark:bg-surface-dark sticky top-0 z-50">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<div class="size-8 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">electric_car</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">EV Mate Japan</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="hidden md:flex items-center gap-9">
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Charging</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Drives</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Battery</a>
+<a class="text-primary text-sm font-medium leading-normal" href="#">Settings</a>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-slate-100 dark:bg-[#233c48] text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-[#2d4b5a] transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-slate-100 dark:bg-[#233c48] text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-[#2d4b5a] transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary cursor-pointer" data-alt="User profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB44bb92IZ-4MUopbWQmKYOyNbnp9H2v4G7QK82__K5TQsqgutmSviNPle0bYQgQ7F8ZgvR3SN116G1HR_LQCH5yEwP1gAhK4cu9ngrSV18Zg8aATuwhgfp1FibhhsdAq6auaoBvRiPnHnrSkU3Xyd6D-NjRxg9V3iv5KgEsjxl28p_JhPLQ7g-klKNOllZ342wrx8tzBvdbfVWdZq6eUWikm-XjzI1fSn36vus-paHcqcJq4pWzQMKY7g52QnBrJsFw5hWF0HR-B8c");'></div>
+</div>
+</header>
+<main class="flex-1 flex justify-center py-8 px-4 sm:px-6 lg:px-8">
+<div class="w-full max-w-[960px] flex flex-col gap-8">
+<!-- Page Header -->
+<div class="flex flex-col gap-2">
+<h1 class="text-slate-900 dark:text-white text-4xl font-bold leading-tight tracking-tight">Settings &amp; Account</h1>
+<p class="text-slate-500 dark:text-[#92b7c9] text-base font-normal">Manage your EV Mate profile, connections, and preferences.</p>
+</div>
+<!-- Tesla Account Section -->
+<section class="flex flex-col gap-4">
+<h2 class="text-slate-900 dark:text-white text-xl font-bold px-1">Tesla Account</h2>
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-[#233c48] overflow-hidden">
+<div class="flex items-center gap-4 px-6 py-5 justify-between flex-wrap">
+<div class="flex items-center gap-4">
+<div class="text-green-500 dark:text-green-400 bg-green-100 dark:bg-green-900/30 flex items-center justify-center rounded-lg shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl">check_circle</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-base font-medium">Tesla API Connection</p>
+<p class="text-slate-500 dark:text-[#92b7c9] text-sm">Connected to Model 3 (VIN: ...8392)</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 rounded-lg bg-slate-100 dark:bg-[#233c48] text-slate-700 dark:text-white text-sm font-medium hover:bg-slate-200 dark:hover:bg-[#2d4b5a] transition-colors">
+                                Refresh Token
+                            </button>
+<button class="px-4 py-2 rounded-lg bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-sm font-medium hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors">
+                                Disconnect
+                            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Notifications Section -->
+<section class="flex flex-col gap-4">
+<h2 class="text-slate-900 dark:text-white text-xl font-bold px-1">Notifications</h2>
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-[#233c48] divide-y divide-slate-200 dark:divide-[#233c48]">
+<!-- Notification Item 1 -->
+<div class="flex items-center justify-between p-5">
+<div class="flex items-start gap-4">
+<div class="text-primary bg-primary/10 flex items-center justify-center rounded-lg shrink-0 size-10">
+<span class="material-symbols-outlined text-xl">battery_alert</span>
+</div>
+<div>
+<p class="text-slate-900 dark:text-white font-medium">Battery Low Alert</p>
+<p class="text-slate-500 dark:text-[#92b7c9] text-sm mt-0.5">Get notified when battery drops below 20%</p>
+</div>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-slate-300 appearance-none cursor-pointer transition-all duration-300" id="toggle1" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-slate-300 dark:bg-[#233c48] cursor-pointer transition-colors duration-300" for="toggle1"></label>
+</div>
+</div>
+<!-- Notification Item 2 -->
+<div class="flex items-center justify-between p-5">
+<div class="flex items-start gap-4">
+<div class="text-primary bg-primary/10 flex items-center justify-center rounded-lg shrink-0 size-10">
+<span class="material-symbols-outlined text-xl">ev_station</span>
+</div>
+<div>
+<p class="text-slate-900 dark:text-white font-medium">Charge Complete</p>
+<p class="text-slate-500 dark:text-[#92b7c9] text-sm mt-0.5">Receive an email when charging finishes</p>
+</div>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-slate-300 appearance-none cursor-pointer transition-all duration-300" id="toggle2" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-slate-300 dark:bg-[#233c48] cursor-pointer transition-colors duration-300" for="toggle2"></label>
+</div>
+</div>
+</div>
+</section>
+<!-- Electricity Rate Settings -->
+<section class="flex flex-col gap-4">
+<div class="flex items-end justify-between px-1">
+<h2 class="text-slate-900 dark:text-white text-xl font-bold">Electricity Rate Settings</h2>
+<span class="text-primary text-sm font-medium cursor-pointer hover:underline">View Historical Rates</span>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-[#233c48] p-6">
+<p class="text-slate-500 dark:text-[#92b7c9] text-sm mb-6">Configure your electricity costs to calculate accurate charging expenses. Prices are in JPY.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Standard Rate -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-700 dark:text-slate-200 text-sm font-medium">Standard Rate (JPY/kWh)</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-lg">currency_yen</span>
+</span>
+<input class="w-full bg-slate-50 dark:bg-[#111c22] border border-slate-300 dark:border-[#233c48] text-slate-900 dark:text-white text-sm rounded-lg focus:ring-primary focus:border-primary block pl-10 p-2.5 placeholder-slate-400" placeholder="0.00" type="number" value="31.50"/>
+</div>
+</div>
+<!-- Night Rate -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-700 dark:text-slate-200 text-sm font-medium">Night-time Discount Rate (JPY/kWh)</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-lg">bedtime</span>
+</span>
+<input class="w-full bg-slate-50 dark:bg-[#111c22] border border-slate-300 dark:border-[#233c48] text-slate-900 dark:text-white text-sm rounded-lg focus:ring-primary focus:border-primary block pl-10 p-2.5 placeholder-slate-400" placeholder="0.00" type="number" value="18.20"/>
+</div>
+</div>
+<!-- Discount Hours Start -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-700 dark:text-slate-200 text-sm font-medium">Discount Start Time</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-lg">schedule</span>
+</span>
+<input class="w-full bg-slate-50 dark:bg-[#111c22] border border-slate-300 dark:border-[#233c48] text-slate-900 dark:text-white text-sm rounded-lg focus:ring-primary focus:border-primary block pl-10 p-2.5 [color-scheme:dark]" type="time" value="23:00"/>
+</div>
+</div>
+<!-- Discount Hours End -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-700 dark:text-slate-200 text-sm font-medium">Discount End Time</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-lg">schedule</span>
+</span>
+<input class="w-full bg-slate-50 dark:bg-[#111c22] border border-slate-300 dark:border-[#233c48] text-slate-900 dark:text-white text-sm rounded-lg focus:ring-primary focus:border-primary block pl-10 p-2.5 [color-scheme:dark]" type="time" value="07:00"/>
+</div>
+</div>
+</div>
+<div class="mt-6 flex justify-end">
+<button class="bg-primary hover:bg-sky-500 text-white font-medium py-2 px-6 rounded-lg transition-colors shadow-lg shadow-primary/20">
+                            Save Rates
+                        </button>
+</div>
+</div>
+</section>
+<!-- Subscription & Data -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+<!-- Subscription -->
+<section class="flex flex-col gap-4">
+<h2 class="text-slate-900 dark:text-white text-xl font-bold px-1">Subscription</h2>
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-[#233c48] p-6 h-full flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<h3 class="text-slate-900 dark:text-white font-bold text-lg">EV Mate Pro</h3>
+<span class="bg-gradient-to-r from-yellow-500 to-amber-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Pro</span>
+</div>
+<p class="text-slate-500 dark:text-[#92b7c9] text-sm">Active since Jan 2024</p>
+</div>
+<div class="p-2 bg-slate-100 dark:bg-[#111c22] rounded-lg">
+<span class="material-symbols-outlined text-amber-500">star</span>
+</div>
+</div>
+<ul class="space-y-2 mb-6">
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-base">check</span>
+                                    Unlimited Data History
+                                </li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-base">check</span>
+                                    Advanced Battery Analytics
+                                </li>
+<li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-base">check</span>
+                                    Priority Support
+                                </li>
+</ul>
+</div>
+<button class="w-full border border-slate-300 dark:border-[#233c48] text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-[#233c48] font-medium py-2 px-4 rounded-lg transition-colors">
+                            Manage Subscription
+                        </button>
+</div>
+</section>
+<!-- Data Management -->
+<section class="flex flex-col gap-4">
+<h2 class="text-slate-900 dark:text-white text-xl font-bold px-1">Data Management</h2>
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-[#233c48] p-6 h-full flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-slate-900 dark:text-white font-bold text-lg">Export Data</h3>
+<p class="text-slate-500 dark:text-[#92b7c9] text-sm mt-1">Download your driving and charging history.</p>
+</div>
+<div class="p-2 bg-slate-100 dark:bg-[#111c22] rounded-lg">
+<span class="material-symbols-outlined text-primary">download</span>
+</div>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs mb-6 leading-relaxed">
+                                Your data is exported in CSV format compatible with most spreadsheet software like Excel or Google Sheets. This includes detailed logs of charging sessions and efficiency metrics.
+                            </p>
+</div>
+<div class="flex flex-col gap-3">
+<button class="w-full bg-slate-100 dark:bg-[#233c48] hover:bg-slate-200 dark:hover:bg-[#2d4b5a] text-slate-900 dark:text-white font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-lg">description</span>
+                                Export Driving History
+                            </button>
+<button class="w-full bg-slate-100 dark:bg-[#233c48] hover:bg-slate-200 dark:hover:bg-[#2d4b5a] text-slate-900 dark:text-white font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-lg">ev_station</span>
+                                Export Charging Logs
+                            </button>
+</div>
+</div>
+</section>
+</div>
+<!-- Danger Zone -->
+<section class="mb-12">
+<div class="bg-red-50 dark:bg-red-900/10 rounded-xl border border-red-200 dark:border-red-900/30 p-6">
+<h3 class="text-red-700 dark:text-red-400 font-bold text-lg mb-2">Delete Account</h3>
+<p class="text-red-600/80 dark:text-red-400/70 text-sm mb-4">Once you delete your account, there is no going back. Please be certain.</p>
+<button class="bg-transparent border border-red-300 dark:border-red-800 text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/20 font-medium py-2 px-4 rounded-lg text-sm transition-colors">
+                        Delete your account
+                    </button>
+</div>
+</section>
+</div>
+</main>
+</body></html>

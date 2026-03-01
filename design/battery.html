@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EV Battery Health Analytics</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for better look in dark mode */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #101c22;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #233c48;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #325567;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display antialiased min-h-screen flex flex-col overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-[#233c48] px-10 py-4 bg-white dark:bg-[#111c22]">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<div class="size-6 text-primary">
+<span class="material-symbols-outlined !text-[24px]">electric_car</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">EV Mate Japan</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<nav class="hidden md:flex items-center gap-9">
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Dashboard</a>
+<a class="text-primary text-sm font-bold leading-normal" href="#">Battery Health</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Charging Costs</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Trips</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Settings</a>
+</nav>
+<button class="flex items-center justify-center overflow-hidden rounded-lg h-10 bg-slate-100 dark:bg-[#233c48] text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-[#2f4f5f] transition-colors gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-3">
+<span class="material-symbols-outlined !text-[20px]">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-slate-200 dark:border-slate-700" data-alt="User profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCCt8L3lUdz7wwtYX4SgrUWR4gGYdPjzIGYWMb_ybcQYFB-jv3mmRaUgCAL-gbUOXUlrian8Yb0ddNZn66E4anikquAePzL6VOF8hLyIZ_qjROSwK4pXeKEeLfj_YW5cpfoZvF63da61wPdZbTNqgosDJ034546wxP8eBCKSIuh7u---jdSdEDa9srB0HafQKp9y--mn9e5iI3no9Au_afOEsdOlsGegrc0eIg489m0pZENwad1abVJBQ-yTwibPHKgksXLwakJ3gJm");'></div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex justify-center py-8 px-4 md:px-8 lg:px-12">
+<div class="w-full max-w-7xl flex flex-col gap-8">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div class="flex flex-col gap-2">
+<h1 class="text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Battery Health Analytics</h1>
+<p class="text-slate-500 dark:text-[#92b7c9] text-base font-normal max-w-2xl">
+                        Detailed insights into your Tesla's battery performance and degradation over time. 
+                        Tracking since <span class="text-primary font-medium">May 2022</span>.
+                    </p>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-sm text-slate-500 dark:text-slate-400">Model 3 Long Range (2021)</span>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 text-primary rounded-lg text-sm font-bold transition-colors">
+<span class="material-symbols-outlined !text-[18px]">download</span>
+                        Export Report
+                    </button>
+</div>
+</div>
+<!-- Key Metrics Grid -->
+<section aria-label="Key Battery Metrics" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-[#1a2c35] border border-slate-200 dark:border-[#233c48] shadow-sm">
+<div class="flex justify-between items-start">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wider">Degradation</p>
+<span class="material-symbols-outlined text-red-500 dark:text-[#fa5f38]">trending_down</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<p class="text-4xl font-bold leading-tight">2.4%</p>
+<p class="text-green-500 dark:text-[#0bda57] text-sm font-medium">-0.1%</p>
+</div>
+<p class="text-slate-400 dark:text-slate-500 text-xs">Better than 85% of fleet</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-[#1a2c35] border border-slate-200 dark:border-[#233c48] shadow-sm">
+<div class="flex justify-between items-start">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wider">Est. Max Range</p>
+<span class="material-symbols-outlined text-primary">distance</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<p class="text-4xl font-bold leading-tight">482 <span class="text-xl font-normal text-slate-400">km</span></p>
+<p class="text-green-500 dark:text-[#0bda57] text-sm font-medium">+2 km</p>
+</div>
+<p class="text-slate-400 dark:text-slate-500 text-xs">Vs. last month avg</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-[#1a2c35] border border-slate-200 dark:border-[#233c48] shadow-sm">
+<div class="flex justify-between items-start">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wider">Avg Charge</p>
+<span class="material-symbols-outlined text-yellow-500 dark:text-yellow-400">battery_charging_full</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<p class="text-4xl font-bold leading-tight">76%</p>
+<p class="text-red-500 dark:text-[#fa5f38] text-sm font-medium">-2%</p>
+</div>
+<p class="text-slate-400 dark:text-slate-500 text-xs">Optimal range: 60-80%</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-[#1a2c35] border border-slate-200 dark:border-[#233c48] shadow-sm">
+<div class="flex justify-between items-start">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wider">Cycle Count</p>
+<span class="material-symbols-outlined text-purple-500 dark:text-purple-400">restart_alt</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<p class="text-4xl font-bold leading-tight">142</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">+12</p>
+</div>
+<p class="text-slate-400 dark:text-slate-500 text-xs">Lifetime total cycles</p>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Main Chart Area -->
+<section class="lg:col-span-2 flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h2 class="text-2xl font-bold leading-tight">Range Degradation Trend</h2>
+<select class="bg-transparent border border-slate-200 dark:border-[#325567] text-slate-900 dark:text-white text-sm rounded-lg p-2 focus:ring-primary focus:border-primary">
+<option>Last 12 Months</option>
+<option>All Time</option>
+<option>Year to Date</option>
+</select>
+</div>
+<div class="bg-white dark:bg-[#1a2c35] border border-slate-200 dark:border-[#233c48] rounded-xl p-6 shadow-sm h-[400px] relative overflow-hidden flex flex-col">
+<!-- Simulated Chart -->
+<div class="flex-1 flex items-end justify-between gap-2 mt-8 px-2 relative z-10">
+<!-- Y Axis Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20">
+<div class="w-full h-px bg-slate-400"></div>
+<div class="w-full h-px bg-slate-400"></div>
+<div class="w-full h-px bg-slate-400"></div>
+<div class="w-full h-px bg-slate-400"></div>
+<div class="w-full h-px bg-slate-400"></div>
+</div>
+<!-- Chart Bars/Points approximation -->
+<!-- Using gradients to simulate a line chart fill area -->
+<div class="absolute inset-0 top-10 flex items-end">
+<div class="w-full h-[70%] bg-gradient-to-t from-primary/20 to-transparent absolute bottom-0"></div>
+<!-- SVG Line Path -->
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0,30 Q10,28 20,32 T40,35 T60,38 T80,42 T100,45" fill="none" stroke="#13a4ec" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+<!-- Fleet Average Line -->
+<path class="opacity-50" d="M0,25 Q10,35 20,40 T40,48 T60,55 T80,60 T100,65" fill="none" stroke="#64748b" stroke-dasharray="4" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+</svg>
+</div>
+<!-- X Axis Labels -->
+<div class="w-full absolute bottom-0 translate-y-full flex justify-between text-xs text-slate-400 pt-2 font-mono">
+<span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
+</div>
+</div>
+<div class="flex items-center gap-6 mt-8 justify-center">
+<div class="flex items-center gap-2">
+<span class="size-3 rounded-full bg-primary"></span>
+<span class="text-sm font-medium text-slate-600 dark:text-slate-300">Your Vehicle</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="size-3 rounded-full bg-slate-400 opacity-50"></span>
+<span class="text-sm font-medium text-slate-600 dark:text-slate-300">Fleet Average</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Comparison & Tips Widgets -->
+<section class="flex flex-col gap-6">
+<!-- Fleet Comparison Widget -->
+<div class="bg-white dark:bg-[#1a2c35] border border-slate-200 dark:border-[#233c48] rounded-xl p-6 shadow-sm">
+<h3 class="text-lg font-bold mb-4">Fleet Comparison</h3>
+<p class="text-sm text-slate-500 dark:text-[#92b7c9] mb-6">Comparing against 1,240 Model 3 (2021) owners in Japan.</p>
+<div class="relative pt-6 pb-2">
+<div class="h-4 w-full bg-slate-100 dark:bg-[#0d1418] rounded-full overflow-hidden relative">
+<!-- Distribution Gradient -->
+<div class="absolute left-1/4 right-1/4 top-0 bottom-0 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+<div class="absolute left-[30%] right-[30%] top-0 bottom-0 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+<!-- User Marker -->
+<div class="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)] z-10" style="left: 78%;"></div>
+</div>
+<!-- Marker Label -->
+<div class="absolute -top-1 left-[78%] -translate-x-1/2 flex flex-col items-center">
+<div class="bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded mb-1">YOU</div>
+<div class="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[4px] border-t-primary"></div>
+</div>
+<div class="flex justify-between text-xs text-slate-400 mt-2 font-mono">
+<span>Bottom 10%</span>
+<span>Average</span>
+<span>Top 10%</span>
+</div>
+</div>
+<div class="mt-4 p-3 bg-green-500/10 border border-green-500/20 rounded-lg flex gap-3 items-start">
+<span class="material-symbols-outlined text-green-500 text-lg mt-0.5">check_circle</span>
+<p class="text-sm text-green-700 dark:text-green-400">Your battery health is in the <span class="font-bold">top 12%</span> of similar vehicles.</p>
+</div>
+</div>
+<!-- Battery Tips Widget -->
+<div class="bg-gradient-to-br from-[#1a2c35] to-[#111c22] border border-[#233c48] rounded-xl p-6 shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-9xl text-primary">tips_and_updates</span>
+</div>
+<div class="relative z-10">
+<h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-yellow-400">lightbulb</span>
+                                Smart Battery Tips
+                            </h3>
+<div class="flex flex-col gap-4">
+<div class="flex gap-3 items-start">
+<div class="bg-[#233c48] p-1.5 rounded text-primary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-sm">bolt</span>
+</div>
+<div>
+<p class="text-sm font-bold text-white mb-0.5">Limit Fast Charging</p>
+<p class="text-xs text-[#92b7c9]">Frequent Supercharging heats the battery. Stick to AC comparisons for daily use.</p>
+</div>
+</div>
+<div class="flex gap-3 items-start">
+<div class="bg-[#233c48] p-1.5 rounded text-primary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-sm">schedule</span>
+</div>
+<div>
+<p class="text-sm font-bold text-white mb-0.5">Schedule Departure</p>
+<p class="text-xs text-[#92b7c9]">Pre-conditioning while plugged in saves range and protects battery chemistry.</p>
+</div>
+</div>
+<button class="mt-2 w-full py-2 border border-[#325567] hover:bg-[#233c48] text-sm font-medium rounded-lg transition-colors text-center text-primary">
+                                    View All Recommendations
+                                </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Charging History Table Preview -->
+<section class="mt-4">
+<h2 class="text-2xl font-bold leading-tight mb-5">Recent Analysis Logs</h2>
+<div class="overflow-x-auto rounded-xl border border-slate-200 dark:border-[#233c48]">
+<table class="w-full text-left text-sm whitespace-nowrap">
+<thead class="bg-slate-50 dark:bg-[#1a2c35] text-slate-500 dark:text-slate-400 font-medium">
+<tr>
+<th class="px-6 py-4">Date</th>
+<th class="px-6 py-4">Range (100%)</th>
+<th class="px-6 py-4">Odometer</th>
+<th class="px-6 py-4">Efficiency</th>
+<th class="px-6 py-4">Temp. Avg</th>
+<th class="px-6 py-4">Status</th>
+</tr>
+</thead>
+<tbody class="bg-white dark:bg-[#111c22] divide-y divide-slate-100 dark:divide-[#233c48]">
+<tr class="hover:bg-slate-50 dark:hover:bg-[#1a2c35]/50 transition-colors">
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">Oct 24, 2023</td>
+<td class="px-6 py-4">482 km</td>
+<td class="px-6 py-4">34,210 km</td>
+<td class="px-6 py-4 text-green-500 dark:text-[#0bda57]">148 Wh/km</td>
+<td class="px-6 py-4">18°C</td>
+<td class="px-6 py-4"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-500/20 dark:text-green-400">Healthy</span></td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-[#1a2c35]/50 transition-colors">
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">Oct 10, 2023</td>
+<td class="px-6 py-4">481 km</td>
+<td class="px-6 py-4">33,845 km</td>
+<td class="px-6 py-4">152 Wh/km</td>
+<td class="px-6 py-4">21°C</td>
+<td class="px-6 py-4"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-500/20 dark:text-green-400">Healthy</span></td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-[#1a2c35]/50 transition-colors">
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">Sep 28, 2023</td>
+<td class="px-6 py-4">483 km</td>
+<td class="px-6 py-4">33,120 km</td>
+<td class="px-6 py-4 text-yellow-500 dark:text-yellow-400">165 Wh/km</td>
+<td class="px-6 py-4">24°C</td>
+<td class="px-6 py-4"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-500/20 dark:text-green-400">Healthy</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</main>
+</body></html>

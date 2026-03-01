@@ -1,0 +1,15 @@
+/node_modules
+/.next/
+/out/
+/build
+.DS_Store
+*.pem
+!public/.well-known/appspecific/com.tesla.3p.public-key.pem
+.env
+.env.*
+!.env.example
+keys/
+npm-debug.log*
+*.tsbuildinfo
+next-env.d.ts
+.vercel

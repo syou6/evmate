@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EV Mate Japan - Driving Efficiency</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                        "surface-dark": "#182830",
+                        "surface-border": "#233c48"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen flex flex-col overflow-x-hidden">
+<!-- Header / Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-surface-border px-10 py-4 bg-white dark:bg-surface-dark sticky top-0 z-50">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<div class="size-8 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">electric_car</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">EV Mate Japan</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Dashboard</a>
+<a class="text-primary text-sm font-medium leading-normal" href="#">Driving Efficiency</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Charging</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Battery Health</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Settings</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-9 border-2 border-primary/20" data-alt="User profile avatar placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDhbOYEx_eHXpC_-bPZlZQUdJqngfstwImzoZe77RiwU9lsHIg8_Dj37Jj2V_29DKCjbkkJSkuVIz0Tkkwu9TN0DKkST3U38m1DCVKbnsgjlPFAN8W8ehkT0JsqpWd7uVWbPNlhXqrX12NfbILuMjIekRueT-UwKaRQ52wCuycQTjZ0pBtpdjqiQNZseopMei8pzAybmHLE5mpaJ5HWHpExDlbl1nD0dklv8kK8-5F6r1ud7Xnayqpi7pDajdKtWe4u8NCpN78sCYZ-");'></div>
+</div>
+</div>
+</header>
+<main class="flex-1 flex justify-center py-8 px-4 sm:px-8">
+<div class="w-full max-w-[1280px] flex flex-col gap-8">
+<!-- Page Title & Controls -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="flex flex-col gap-2">
+<h1 class="text-slate-900 dark:text-white text-3xl md:text-4xl font-bold leading-tight tracking-tight">Driving Efficiency</h1>
+<p class="text-slate-500 dark:text-slate-400 text-base">Overview for October 2023</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 dark:border-surface-border bg-white dark:bg-surface-dark text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+<span class="text-sm font-medium">Oct 2023</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span class="text-sm font-medium">Export Report</span>
+</button>
+</div>
+</div>
+<!-- Summary Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Total Distance -->
+<div class="bg-white dark:bg-surface-dark rounded-xl p-6 border border-slate-200 dark:border-surface-border flex flex-col gap-4 relative overflow-hidden group">
+<div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary">distance</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined text-xl">route</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Total Distance</p>
+</div>
+<div>
+<p class="text-slate-900 dark:text-white text-3xl font-bold">1,240 km</p>
+<div class="flex items-center gap-1 mt-1 text-emerald-500 text-sm font-medium">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+12% from last month</span>
+</div>
+</div>
+</div>
+<!-- Avg Efficiency -->
+<div class="bg-white dark:bg-surface-dark rounded-xl p-6 border border-slate-200 dark:border-surface-border flex flex-col gap-4 relative overflow-hidden group">
+<div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary">bolt</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined text-xl">electric_bolt</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Avg. Efficiency</p>
+</div>
+<div>
+<p class="text-slate-900 dark:text-white text-3xl font-bold">148 Wh/km</p>
+<div class="flex items-center gap-1 mt-1 text-emerald-500 text-sm font-medium">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+<span>-5% (Improved)</span>
+</div>
+</div>
+</div>
+<!-- Est Cost -->
+<div class="bg-white dark:bg-surface-dark rounded-xl p-6 border border-slate-200 dark:border-surface-border flex flex-col gap-4 relative overflow-hidden group">
+<div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary">payments</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined text-xl">currency_yen</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Est. Charging Cost</p>
+</div>
+<div>
+<p class="text-slate-900 dark:text-white text-3xl font-bold">¥4,200</p>
+<div class="flex items-center gap-1 mt-1 text-rose-500 text-sm font-medium">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+2% vs Avg</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Area: Chart + Leaderboard -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Weekly Trends Chart -->
+<div class="lg:col-span-2 bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-surface-border p-6 flex flex-col h-full">
+<div class="flex items-center justify-between mb-6">
+<div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Weekly Efficiency Trends</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Daily average consumption (Wh/km)</p>
+</div>
+<div class="flex gap-2">
+<button class="p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">bar_chart</span>
+</button>
+<button class="p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">show_chart</span>
+</button>
+</div>
+</div>
+<div class="flex-1 flex items-end justify-between gap-2 sm:gap-4 min-h-[240px] px-2 pb-2">
+<!-- Chart Bars -->
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-slate-800/50 rounded-t-sm relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary/60 group-hover:bg-primary transition-all duration-300 rounded-t-sm relative" style="height: 65%;">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap transition-opacity pointer-events-none">142 Wh/km</div>
+</div>
+</div>
+<span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Mon</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-slate-800/50 rounded-t-sm relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary/60 group-hover:bg-primary transition-all duration-300 rounded-t-sm relative" style="height: 45%;">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap transition-opacity pointer-events-none">130 Wh/km</div>
+</div>
+</div>
+<span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Tue</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-slate-800/50 rounded-t-sm relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary/60 group-hover:bg-primary transition-all duration-300 rounded-t-sm relative" style="height: 85%;">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap transition-opacity pointer-events-none">168 Wh/km</div>
+</div>
+</div>
+<span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Wed</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-slate-800/50 rounded-t-sm relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary/60 group-hover:bg-primary transition-all duration-300 rounded-t-sm relative" style="height: 55%;">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap transition-opacity pointer-events-none">138 Wh/km</div>
+</div>
+</div>
+<span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Thu</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-slate-800/50 rounded-t-sm relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary/60 group-hover:bg-primary transition-all duration-300 rounded-t-sm relative" style="height: 35%;">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap transition-opacity pointer-events-none">125 Wh/km</div>
+</div>
+</div>
+<span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Fri</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-slate-800/50 rounded-t-sm relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-rose-500/80 group-hover:bg-rose-500 transition-all duration-300 rounded-t-sm relative" style="height: 90%;">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap transition-opacity pointer-events-none">175 Wh/km</div>
+</div>
+</div>
+<span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Sat</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-slate-800/50 rounded-t-sm relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-rose-500/80 group-hover:bg-rose-500 transition-all duration-300 rounded-t-sm relative" style="height: 75%;">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap transition-opacity pointer-events-none">155 Wh/km</div>
+</div>
+</div>
+<span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Sun</span>
+</div>
+</div>
+</div>
+<!-- Top 5 Leaderboard -->
+<div class="lg:col-span-1 bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-surface-border p-6 flex flex-col h-full">
+<div class="flex items-center gap-2 mb-6">
+<div class="p-2 bg-yellow-500/10 rounded-full text-yellow-500">
+<span class="material-symbols-outlined">trophy</span>
+</div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Top 5 Efficient Trips</h3>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Rank 1 -->
+<div class="flex items-center gap-4 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-primary/20 cursor-pointer">
+<div class="flex-none font-bold text-yellow-500 text-lg w-6 text-center">1</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-white font-medium text-sm">Hakone Loop</p>
+<p class="text-slate-500 text-xs">Oct 12 • 45 km</p>
+</div>
+<div class="text-right">
+<p class="text-primary font-bold text-sm">118</p>
+<p class="text-slate-500 text-[10px]">Wh/km</p>
+</div>
+</div>
+<!-- Rank 2 -->
+<div class="flex items-center gap-4 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-primary/20 cursor-pointer">
+<div class="flex-none font-bold text-slate-400 text-lg w-6 text-center">2</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-white font-medium text-sm">Shibuya Commute</p>
+<p class="text-slate-500 text-xs">Oct 15 • 12 km</p>
+</div>
+<div class="text-right">
+<p class="text-primary font-bold text-sm">122</p>
+<p class="text-slate-500 text-[10px]">Wh/km</p>
+</div>
+</div>
+<!-- Rank 3 -->
+<div class="flex items-center gap-4 p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-primary/20 cursor-pointer">
+<div class="flex-none font-bold text-slate-500 text-lg w-6 text-center">3</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-white font-medium text-sm">Costco Run</p>
+<p class="text-slate-500 text-xs">Oct 08 • 22 km</p>
+</div>
+<div class="text-right">
+<p class="text-primary font-bold text-sm">125</p>
+<p class="text-slate-500 text-[10px]">Wh/km</p>
+</div>
+</div>
+<!-- Rank 4 -->
+<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer border border-transparent hover:border-slate-700">
+<div class="flex-none font-medium text-slate-600 text-sm w-6 text-center">4</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-white font-medium text-sm">Airport Pickup</p>
+<p class="text-slate-500 text-xs">Oct 03 • 68 km</p>
+</div>
+<div class="text-right">
+<p class="text-slate-300 font-bold text-sm">130</p>
+<p class="text-slate-500 text-[10px]">Wh/km</p>
+</div>
+</div>
+<!-- Rank 5 -->
+<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer border border-transparent hover:border-slate-700">
+<div class="flex-none font-medium text-slate-600 text-sm w-6 text-center">5</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-white font-medium text-sm">City Center</p>
+<p class="text-slate-500 text-xs">Oct 19 • 8 km</p>
+</div>
+<div class="text-right">
+<p class="text-slate-300 font-bold text-sm">132</p>
+<p class="text-slate-500 text-[10px]">Wh/km</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Trip Log -->
+<div class="bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-surface-border flex flex-col overflow-hidden">
+<div class="p-6 border-b border-slate-200 dark:border-surface-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<h2 class="text-slate-900 dark:text-white text-xl font-bold">Recent Trip Log</h2>
+<div class="flex items-center gap-2">
+<div class="relative group">
+<span class="absolute left-3 top-2.5 text-slate-500 material-symbols-outlined text-[20px]">search</span>
+<input class="pl-10 pr-4 py-2 rounded-lg bg-slate-50 dark:bg-slate-800 border-none text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-primary w-full sm:w-64 placeholder-slate-500" placeholder="Search trips..." type="text"/>
+</div>
+<button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 text-xs uppercase tracking-wider font-semibold border-b border-slate-200 dark:border-surface-border">
+<th class="p-4 pl-6">Date &amp; Time</th>
+<th class="p-4">Route / Destination</th>
+<th class="p-4 text-right">Distance</th>
+<th class="p-4 text-right">Efficiency</th>
+<th class="p-4 text-right">Battery Used</th>
+<th class="p-4 text-right">Est. Cost</th>
+<th class="p-4 pr-6"></th>
+</tr>
+</thead>
+<tbody class="text-sm divide-y divide-slate-200 dark:divide-slate-800">
+<!-- Row 1 -->
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="p-4 pl-6 text-slate-900 dark:text-white font-medium">Oct 24, 18:30</td>
+<td class="p-4 text-slate-600 dark:text-slate-300">Shinjuku to Yokohama</td>
+<td class="p-4 text-right text-slate-600 dark:text-slate-300">32.4 km</td>
+<td class="p-4 text-right">
+<span class="px-2 py-1 rounded-full bg-emerald-500/10 text-emerald-500 font-medium text-xs border border-emerald-500/20">138 Wh/km</span>
+</td>
+<td class="p-4 text-right text-slate-600 dark:text-slate-300">8%</td>
+<td class="p-4 text-right text-slate-600 dark:text-slate-300">¥142</td>
+<td class="p-4 pr-6 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="p-4 pl-6 text-slate-900 dark:text-white font-medium">Oct 24, 08:15</td>
+<td class="p-4 text-slate-600 dark:text-slate-300">Yokohama to Shinjuku</td>
+<td class="p-4 text-right text-slate-600 dark:text-slate-300">31.8 km</td>
+<td class="p-4 text-right">
+<span class="px-2 py-1 rounded-full bg-yellow-500/10 text-yellow-500 font-medium text-xs border border-yellow-500/20">152 Wh/km</span>
+</td>
+<td class="p-4 text-right text-slate-600 dark:text-slate-300">9%</td>
+<td class="p-4 text-right text-slate-600 dark:text-slate-300">¥158</td>
+<td class="p-4 pr-6 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="p-4 pl-6 text-slate-900 dark:text-white font-medium">Oct 23, 14:20</td>
+<td class="p-4 text-slate-600 dark:text-slate-300">Grocery Run</td>
+<td class="p-4 text-right text-slate-600 dark:text-slate-300">5.2 km</td>
+<td class="p-4 text-right">
+<span class="px-2 py-1 rounded-full bg-rose-500/10 text-rose-500 font-medium text-xs border border-rose-500/20">185 Wh/km</span>
+</td>
+<td class="p-4 text-right text-slate-600 dark:text-slate-300">2%</td>
+<td class="p-4 text-right text-slate-600 dark:text-slate-300">¥35</td>
+<td class="p-4 pr-6 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="p-4 pl-6 text-slate-900 dark:text-white font-medium">Oct 22, 19:45</td>
+<td class="p-4 text-slate-600 dark:text-slate-300">Cinema Trip</td>
+<td class="p-4 text-right text-slate-600 dark:text-slate-300">12.5 km</td>
+<td class="p-4 text-right">
+<span class="px-2 py-1 rounded-full bg-emerald-500/10 text-emerald-500 font-medium text-xs border border-emerald-500/20">128 Wh/km</span>
+</td>
+<td class="p-4 text-right text-slate-600 dark:text-slate-300">3%</td>
+<td class="p-4 text-right text-slate-600 dark:text-slate-300">¥52</td>
+<td class="p-4 pr-6 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="p-4 pl-6 text-slate-900 dark:text-white font-medium">Oct 21, 09:00</td>
+<td class="p-4 text-slate-600 dark:text-slate-300">Office Commute</td>
+<td class="p-4 text-right text-slate-600 dark:text-slate-300">18.2 km</td>
+<td class="p-4 text-right">
+<span class="px-2 py-1 rounded-full bg-emerald-500/10 text-emerald-500 font-medium text-xs border border-emerald-500/20">144 Wh/km</span>
+</td>
+<td class="p-4 text-right text-slate-600 dark:text-slate-300">4%</td>
+<td class="p-4 text-right text-slate-600 dark:text-slate-300">¥85</td>
+<td class="p-4 pr-6 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-slate-200 dark:border-surface-border bg-slate-50 dark:bg-slate-800/20 flex justify-center">
+<button class="text-primary hover:text-primary/80 font-medium text-sm flex items-center gap-2">
+                        View All Trips
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

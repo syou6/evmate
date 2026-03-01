@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EV Mate Japan - Dashboard</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                        "surface-dark": "#1a2c35",
+                        "surface-light": "#ffffff",
+                        "border-dark": "#2a4350",
+                    },
+                    fontFamily: {
+                        display: ["Space Grotesk", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-hidden">
+<div class="flex h-screen w-full">
+<!-- Sidebar -->
+<aside class="flex w-64 flex-col border-r border-slate-200 dark:border-border-dark bg-white dark:bg-background-dark transition-all duration-300">
+<div class="flex h-full flex-col justify-between p-4">
+<div class="flex flex-col gap-6">
+<!-- User/Car Profile -->
+<div class="flex items-center gap-3 px-2">
+<div class="relative size-10 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700" data-alt="Avatar of a Tesla Model 3 car" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD_7QodsTbgE_KtWgo28zFgZvJgI5vTDjIv03g6EP8LTDBIPGo09y5GBhbSktkthSH-enu5vklGC6P3LL9dJPqW6NDnxvq1qJpLBw6NdeVDC8cvIjf2OMBrbH4E4R-siy_iqYtP55Co8cPCfzRbRCNvqGk-8v_SaUo4d0atf4oQnoDRNWlIzk5IRdkrRgAQahddVKml-kaSec4w9D41vZKtNp_alIbtaNDmsg8t3hZ7KqK6YCY8A3OvHUDG40QUGdDbLznfjyRLDsdR'); background-size: cover; background-position: center;">
+</div>
+<div class="flex flex-col">
+<h1 class="text-sm font-bold leading-tight">EV Mate Japan</h1>
+<p class="text-xs text-slate-500 dark:text-slate-400">Tesla Model 3</p>
+</div>
+</div>
+<!-- Navigation -->
+<nav class="flex flex-col gap-2">
+<a class="group flex items-center gap-3 rounded-lg bg-primary/10 px-3 py-2 text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">home</span>
+<span class="text-sm font-medium">Overview</span>
+</a>
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-surface-dark transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">battery_charging_full</span>
+<span class="text-sm font-medium">Battery</span>
+</a>
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-surface-dark transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">directions_car</span>
+<span class="text-sm font-medium">Driving</span>
+</a>
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-surface-dark transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">bolt</span>
+<span class="text-sm font-medium">Charging</span>
+</a>
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-surface-dark transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Actions -->
+<div class="flex flex-col gap-4">
+<button class="flex w-full items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white p-2 text-sm font-medium text-slate-600 hover:bg-slate-50 dark:border-border-dark dark:bg-transparent dark:text-slate-400 dark:hover:bg-surface-dark transition-colors">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span>Log Out</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto bg-slate-50 dark:bg-background-dark p-6 md:p-10">
+<div class="mx-auto max-w-7xl">
+<!-- Header -->
+<header class="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-center">
+<div>
+<h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Dashboard</h2>
+<p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Real-time vehicle status &amp; analytics</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 rounded-full bg-green-500/10 px-3 py-1 text-xs font-medium text-green-500">
+<span class="relative flex h-2 w-2">
+<span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
+<span class="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
+</span>
+                            Online
+                        </div>
+<span class="text-xs text-slate-400">Last updated: Just now</span>
+</div>
+</header>
+<!-- Grid Layout -->
+<div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+<!-- Main Car Status Card (Large) -->
+<div class="lg:col-span-2">
+<div class="relative flex h-full min-h-[400px] flex-col overflow-hidden rounded-2xl bg-white p-6 shadow-sm dark:bg-surface-dark dark:shadow-none border border-slate-100 dark:border-border-dark">
+<div class="absolute right-0 top-0 h-full w-2/3 opacity-10 dark:opacity-20 pointer-events-none">
+<!-- Abstract Car Outline Graphic -->
+<svg class="h-full w-full" viewbox="0 0 400 200">
+<path class="text-primary" d="M20,150 Q50,150 60,130 L100,60 Q120,30 160,30 L280,30 Q320,30 340,60 L380,130 Q390,150 380,170 H40" fill="none" stroke="currentColor" stroke-width="2"></path>
+</svg>
+</div>
+<div class="relative z-10 flex flex-1 flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xl font-semibold text-slate-800 dark:text-white">Model 3 Performance</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">VIN: 5YJ3...8392</p>
+</div>
+<button class="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined">power_settings_new</span>
+                                        Wake Up
+                                    </button>
+</div>
+<div class="mt-8 flex flex-col items-center justify-center gap-4 py-8">
+<div class="relative flex h-48 w-48 items-center justify-center rounded-full border-8 border-slate-100 dark:border-slate-700">
+<svg class="absolute -rotate-90 h-full w-full" viewbox="0 0 100 100">
+<circle class="text-slate-100 dark:text-slate-700" cx="50" cy="50" fill="transparent" r="42" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary transition-all duration-1000 ease-out" cx="50" cy="50" fill="transparent" r="42" stroke="currentColor" stroke-dasharray="264" stroke-dashoffset="60" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="flex flex-col items-center">
+<span class="text-4xl font-bold text-slate-800 dark:text-white">78%</span>
+<span class="text-xs font-medium text-slate-400 uppercase tracking-wide">Battery</span>
+</div>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-2xl font-medium text-slate-800 dark:text-white">384 km</span>
+<span class="text-sm text-slate-500 dark:text-slate-400">Estimated Range</span>
+</div>
+</div>
+<div class="mt-auto grid grid-cols-3 gap-4 border-t border-slate-100 pt-6 dark:border-border-dark">
+<div class="flex flex-col gap-1">
+<span class="text-xs text-slate-400">Interior Temp</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary">thermometer</span>
+<span class="text-lg font-semibold text-slate-800 dark:text-white">24°C</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-xs text-slate-400">Odometer</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary">speed</span>
+<span class="text-lg font-semibold text-slate-800 dark:text-white">12,450 km</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-xs text-slate-400">Status</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary">bedtime</span>
+<span class="text-lg font-semibold text-slate-800 dark:text-white">Asleep</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Actions & Status Column -->
+<div class="flex flex-col gap-6">
+<!-- Controls -->
+<div class="rounded-2xl bg-white p-6 shadow-sm dark:bg-surface-dark dark:shadow-none border border-slate-100 dark:border-border-dark">
+<h3 class="mb-4 text-sm font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">Quick Controls</h3>
+<div class="grid grid-cols-2 gap-3">
+<button class="group flex flex-col items-center justify-center gap-2 rounded-xl bg-slate-50 p-4 hover:bg-slate-100 dark:bg-background-dark dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-2xl text-slate-600 group-hover:text-primary dark:text-slate-300">lock</span>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-300">Lock</span>
+</button>
+<button class="group flex flex-col items-center justify-center gap-2 rounded-xl bg-slate-50 p-4 hover:bg-slate-100 dark:bg-background-dark dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-2xl text-slate-600 group-hover:text-primary dark:text-slate-300">ac_unit</span>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-300">Climate</span>
+</button>
+<button class="group flex flex-col items-center justify-center gap-2 rounded-xl bg-slate-50 p-4 hover:bg-slate-100 dark:bg-background-dark dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-2xl text-slate-600 group-hover:text-primary dark:text-slate-300">bolt</span>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-300">Port</span>
+</button>
+<button class="group flex flex-col items-center justify-center gap-2 rounded-xl bg-slate-50 p-4 hover:bg-slate-100 dark:bg-background-dark dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-2xl text-slate-600 group-hover:text-primary dark:text-slate-300">garage</span>
+<span class="text-xs font-medium text-slate-600 dark:text-slate-300">Frunk</span>
+</button>
+</div>
+</div>
+<!-- Map Preview -->
+<div class="flex-1 overflow-hidden rounded-2xl bg-slate-200 dark:bg-surface-dark relative min-h-[200px]" data-alt="Map showing vehicle location in Tokyo" data-location="Tokyo" style="">
+<div class="absolute inset-0 bg-cover bg-center opacity-60" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDL0SHaKuFLN1wNnd9ExfoIjHPinAzSIZqPhQZNh4Kv_paYo_f3wsxhmSmnB4aMFSzjxyLzE-VZLYCnsPL3_NopQRYkF4NxvksDCtCslLmpMdu3xVEUk9YK70cqRwl1U-S731RDO-afIqeJ75m_HlD6bbl86UobNqReW89Uqe2kERlh5BirdSXdFxjhdS1f20BLhMPqzXGDp7VBTRcgyUWvV8IPX2GmMHlReExtnn2gfFOaBTdmnoHKn1ndtYh4kNCH0l11wMlj07j_');"></div>
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+<div class="flex items-center gap-2 text-white">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span class="text-sm font-medium">Minato City, Tokyo</span>
+</div>
+<p class="text-xs text-slate-300 pl-8">Parked since 10:42 AM</p>
+</div>
+</div>
+</div>
+<!-- Statistics Row -->
+<div class="lg:col-span-3">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Charging History -->
+<div class="rounded-2xl bg-white p-6 shadow-sm dark:bg-surface-dark dark:shadow-none border border-slate-100 dark:border-border-dark">
+<div class="mb-4 flex items-center justify-between">
+<h3 class="text-lg font-semibold text-slate-800 dark:text-white">Charging History</h3>
+<a class="text-xs font-medium text-primary hover:underline" href="#">View All</a>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between rounded-lg bg-slate-50 p-3 dark:bg-background-dark">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-green-500/10 text-green-500">
+<span class="material-symbols-outlined">ev_station</span>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-900 dark:text-white">Supercharger Tokyo</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Today, 8:30 AM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-slate-900 dark:text-white">+42 kWh</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">¥ 2,400</p>
+</div>
+</div>
+<div class="flex items-center justify-between rounded-lg bg-slate-50 p-3 dark:bg-background-dark">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10 text-primary">
+<span class="material-symbols-outlined">home</span>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-900 dark:text-white">Home Charging</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Yesterday, 10:00 PM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-slate-900 dark:text-white">+12 kWh</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">¥ 380</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Efficiency Chart (Simulated) -->
+<div class="rounded-2xl bg-white p-6 shadow-sm dark:bg-surface-dark dark:shadow-none border border-slate-100 dark:border-border-dark">
+<div class="mb-4 flex items-center justify-between">
+<h3 class="text-lg font-semibold text-slate-800 dark:text-white">Driving Efficiency</h3>
+<div class="flex gap-2">
+<span class="text-xs font-medium text-slate-400">Avg: 148 Wh/km</span>
+</div>
+</div>
+<div class="flex h-[140px] items-end justify-between gap-2">
+<!-- Bar 1 -->
+<div class="group relative flex w-full flex-col justify-end gap-1">
+<div class="h-[60%] w-full rounded-t-sm bg-slate-200 dark:bg-slate-700 transition-all hover:bg-primary/50"></div>
+<span class="text-center text-[10px] text-slate-400">Mon</span>
+</div>
+<!-- Bar 2 -->
+<div class="group relative flex w-full flex-col justify-end gap-1">
+<div class="h-[45%] w-full rounded-t-sm bg-slate-200 dark:bg-slate-700 transition-all hover:bg-primary/50"></div>
+<span class="text-center text-[10px] text-slate-400">Tue</span>
+</div>
+<!-- Bar 3 -->
+<div class="group relative flex w-full flex-col justify-end gap-1">
+<div class="h-[80%] w-full rounded-t-sm bg-slate-200 dark:bg-slate-700 transition-all hover:bg-primary/50"></div>
+<span class="text-center text-[10px] text-slate-400">Wed</span>
+</div>
+<!-- Bar 4 (Active/Highlight) -->
+<div class="group relative flex w-full flex-col justify-end gap-1">
+<div class="h-[75%] w-full rounded-t-sm bg-primary transition-all hover:opacity-90"></div>
+<span class="text-center text-[10px] text-slate-900 font-bold dark:text-white">Thu</span>
+</div>
+<!-- Bar 5 -->
+<div class="group relative flex w-full flex-col justify-end gap-1">
+<div class="h-[50%] w-full rounded-t-sm bg-slate-200 dark:bg-slate-700 transition-all hover:bg-primary/50"></div>
+<span class="text-center text-[10px] text-slate-400">Fri</span>
+</div>
+<!-- Bar 6 -->
+<div class="group relative flex w-full flex-col justify-end gap-1">
+<div class="h-[30%] w-full rounded-t-sm bg-slate-200 dark:bg-slate-700 transition-all hover:bg-primary/50"></div>
+<span class="text-center text-[10px] text-slate-400">Sat</span>
+</div>
+<!-- Bar 7 -->
+<div class="group relative flex w-full flex-col justify-end gap-1">
+<div class="h-[20%] w-full rounded-t-sm bg-slate-200 dark:bg-slate-700 transition-all hover:bg-primary/50"></div>
+<span class="text-center text-[10px] text-slate-400">Sun</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

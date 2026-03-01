@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EV Mate Subscription Pricing</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                        "surface-dark": "#192b33",
+                        "border-dark": "#233c48",
+                    },
+                    fontFamily: {
+                        display: ["Space Grotesk", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px",
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-border-dark bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-10 py-3">
+<div class="flex items-center gap-4">
+<div class="size-8 text-primary">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">EV Mate Japan</h2>
+</div>
+<div class="hidden lg:flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Charging</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Drives</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Pricing</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Settings</a>
+</div>
+<div class="flex gap-2">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-slate-200 dark:bg-surface-dark text-slate-900 dark:text-white hover:bg-slate-300 dark:hover:bg-border-dark transition-colors text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Sign In</span>
+</button>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white hover:bg-primary/90 transition-colors text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Get Started</span>
+</button>
+</div>
+</div>
+<div class="lg:hidden">
+<span class="material-symbols-outlined text-slate-900 dark:text-white cursor-pointer">menu</span>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="px-4 py-12 md:py-20 flex flex-col items-center justify-center text-center">
+<div class="max-w-3xl flex flex-col gap-6">
+<h1 class="text-slate-900 dark:text-white text-4xl md:text-6xl font-black leading-tight tracking-[-0.033em]">
+                    Choose the Right Plan for Your EV
+                </h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg md:text-xl font-normal leading-relaxed max-w-2xl mx-auto">
+                    Unlock advanced analytics, real-time battery health insights, and cost tracking to get the most out of your Tesla ownership experience.
+                </p>
+<!-- Toggle -->
+<div class="mt-8 flex items-center justify-center gap-4">
+<span class="text-slate-600 dark:text-slate-400 font-medium">Monthly</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-14 h-7 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/20 rounded-full peer dark:bg-surface-dark peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+<span class="text-slate-900 dark:text-white font-bold">Yearly <span class="text-primary text-sm font-normal ml-1">(Save 20%)</span></span>
+</div>
+</div>
+</section>
+<!-- Pricing Cards -->
+<section class="px-4 pb-12">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+<!-- Free Plan -->
+<div class="flex flex-col rounded-xl border border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark p-8 shadow-sm hover:shadow-md transition-shadow">
+<div class="mb-6">
+<h3 class="text-slate-900 dark:text-white text-xl font-bold">Basic</h3>
+<p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">Essential tracking for casual drivers</p>
+</div>
+<div class="mb-6 flex items-baseline gap-1">
+<span class="text-slate-900 dark:text-white text-5xl font-black tracking-tight">¥0</span>
+<span class="text-slate-500 dark:text-slate-400 font-medium">/month</span>
+</div>
+<button class="w-full rounded-lg bg-slate-100 dark:bg-border-dark text-slate-900 dark:text-white py-3 text-sm font-bold hover:bg-slate-200 dark:hover:bg-[#2c4b5a] transition-colors mb-8">
+                        Get Started Free
+                    </button>
+<ul class="flex flex-col gap-4 flex-1">
+<li class="flex items-center gap-3 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+<span class="text-sm">Basic Dashboard</span>
+</li>
+<li class="flex items-center gap-3 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+<span class="text-sm">Charging Log (Last 30 Days)</span>
+</li>
+<li class="flex items-center gap-3 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+<span class="text-sm">1 Vehicle Support</span>
+</li>
+</ul>
+</div>
+<!-- Pro Plan -->
+<div class="relative flex flex-col rounded-xl border-2 border-primary bg-white dark:bg-surface-dark p-8 shadow-lg shadow-primary/10">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                        Most Popular
+                    </div>
+<div class="mb-6">
+<h3 class="text-slate-900 dark:text-white text-xl font-bold">Pro</h3>
+<p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">Complete analytics for power users</p>
+</div>
+<div class="mb-6 flex items-baseline gap-1">
+<span class="text-slate-900 dark:text-white text-5xl font-black tracking-tight">¥980</span>
+<span class="text-slate-500 dark:text-slate-400 font-medium">/month</span>
+</div>
+<button class="w-full rounded-lg bg-primary text-white py-3 text-sm font-bold hover:bg-primary/90 transition-colors mb-8 shadow-lg shadow-primary/25">
+                        Upgrade to Pro
+                    </button>
+<ul class="flex flex-col gap-4 flex-1">
+<li class="flex items-center gap-3 text-slate-900 dark:text-white font-medium">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+<span class="text-sm">Everything in Basic</span>
+</li>
+<li class="flex items-center gap-3 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+<span class="text-sm">Unlimited Charging History</span>
+</li>
+<li class="flex items-center gap-3 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+<span class="text-sm">Battery Health Monitor</span>
+</li>
+<li class="flex items-center gap-3 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+<span class="text-sm">Phantom Drain Analysis</span>
+</li>
+<li class="flex items-center gap-3 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+<span class="text-sm">Priority Email Support</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Feature Comparison Table -->
+<section class="px-4 py-12 bg-slate-100 dark:bg-[#0d161b]">
+<div class="max-w-4xl mx-auto">
+<h2 class="text-2xl md:text-3xl font-bold text-center text-slate-900 dark:text-white mb-10">Compare Features</h2>
+<div class="overflow-hidden rounded-xl border border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-[#1f3640] border-b border-slate-200 dark:border-border-dark">
+<th class="p-4 md:p-6 text-sm font-bold text-slate-900 dark:text-white w-1/2">Feature</th>
+<th class="p-4 md:p-6 text-sm font-bold text-center text-slate-900 dark:text-white w-1/4">Basic</th>
+<th class="p-4 md:p-6 text-sm font-bold text-center text-primary w-1/4">Pro</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-border-dark">
+<tr>
+<td class="p-4 md:px-6 text-sm text-slate-700 dark:text-slate-300">Dashboard Access</td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-slate-400 dark:text-slate-500 text-lg">check</span></td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-primary text-lg">check</span></td>
+</tr>
+<tr>
+<td class="p-4 md:px-6 text-sm text-slate-700 dark:text-slate-300">Charging Costs Tracking</td>
+<td class="p-4 text-center"><span class="text-xs text-slate-500">30 Days</span></td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-primary text-lg">check</span></td>
+</tr>
+<tr>
+<td class="p-4 md:px-6 text-sm text-slate-700 dark:text-slate-300">Battery Health Monitor</td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-lg">remove</span></td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-primary text-lg">check</span></td>
+</tr>
+<tr>
+<td class="p-4 md:px-6 text-sm text-slate-700 dark:text-slate-300">Driving Efficiency Analytics</td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-lg">remove</span></td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-primary text-lg">check</span></td>
+</tr>
+<tr>
+<td class="p-4 md:px-6 text-sm text-slate-700 dark:text-slate-300">Phantom Drain Analysis</td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-lg">remove</span></td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-primary text-lg">check</span></td>
+</tr>
+<tr>
+<td class="p-4 md:px-6 text-sm text-slate-700 dark:text-slate-300">CSV Data Export</td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-lg">remove</span></td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-primary text-lg">check</span></td>
+</tr>
+<tr>
+<td class="p-4 md:px-6 text-sm text-slate-700 dark:text-slate-300">Priority Support</td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-slate-300 dark:text-slate-600 text-lg">remove</span></td>
+<td class="p-4 text-center"><span class="material-symbols-outlined text-primary text-lg">check</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="px-4 py-16 md:py-24">
+<div class="max-w-3xl mx-auto">
+<h2 class="text-2xl md:text-3xl font-bold text-center text-slate-900 dark:text-white mb-4">Frequently Asked Questions</h2>
+<p class="text-center text-slate-600 dark:text-slate-400 mb-12">Everything you need to know about EV Mate Japan and your data privacy.</p>
+<div class="flex flex-col gap-4">
+<!-- FAQ Item 1 -->
+<div class="rounded-lg border border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark overflow-hidden">
+<details class="group p-6 cursor-pointer">
+<summary class="flex justify-between items-center font-medium text-slate-900 dark:text-white list-none">
+<span>Is my Tesla account data safe?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-slate-400">expand_more</span>
+</summary>
+<div class="text-slate-600 dark:text-slate-400 mt-4 leading-relaxed text-sm">
+                                Absolutely. We use official Tesla API tokens and never store your raw password. All data is encrypted at rest and in transit using industry-standard AES-256 encryption. We prioritize your privacy and security above all else.
+                            </div>
+</details>
+</div>
+<!-- FAQ Item 2 -->
+<div class="rounded-lg border border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark overflow-hidden">
+<details class="group p-6 cursor-pointer">
+<summary class="flex justify-between items-center font-medium text-slate-900 dark:text-white list-none">
+<span>Can I cancel my subscription at any time?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-slate-400">expand_more</span>
+</summary>
+<div class="text-slate-600 dark:text-slate-400 mt-4 leading-relaxed text-sm">
+                                Yes, you can cancel your subscription instantly from your account settings. Your Pro features will remain active until the end of your current billing period.
+                            </div>
+</details>
+</div>
+<!-- FAQ Item 3 -->
+<div class="rounded-lg border border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark overflow-hidden">
+<details class="group p-6 cursor-pointer">
+<summary class="flex justify-between items-center font-medium text-slate-900 dark:text-white list-none">
+<span>Does using EV Mate drain my battery?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-slate-400">expand_more</span>
+</summary>
+<div class="text-slate-600 dark:text-slate-400 mt-4 leading-relaxed text-sm">
+                                We've optimized our polling frequency to minimize phantom drain. By default, we let your car sleep when it's idle and only wake it up during expected activity or charging sessions.
+                            </div>
+</details>
+</div>
+<!-- FAQ Item 4 -->
+<div class="rounded-lg border border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark overflow-hidden">
+<details class="group p-6 cursor-pointer">
+<summary class="flex justify-between items-center font-medium text-slate-900 dark:text-white list-none">
+<span>What payment methods do you accept?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-slate-400">expand_more</span>
+</summary>
+<div class="text-slate-600 dark:text-slate-400 mt-4 leading-relaxed text-sm">
+                                We use Stripe for payment processing, which accepts all major credit cards (Visa, Mastercard, Amex) and Apple Pay / Google Pay.
+                            </div>
+</details>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-16 bg-white dark:bg-surface-dark border-t border-slate-200 dark:border-border-dark">
+<div class="max-w-4xl mx-auto px-4 text-center">
+<h2 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-6">Ready to optimize your EV ownership?</h2>
+<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+<button class="w-full sm:w-auto px-8 py-3 rounded-lg bg-primary text-white font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                        Start 14-Day Free Trial
+                    </button>
+<button class="w-full sm:w-auto px-8 py-3 rounded-lg border border-slate-300 dark:border-border-dark text-slate-700 dark:text-white font-bold hover:bg-slate-50 dark:hover:bg-background-dark transition-all">
+                        Contact Sales
+                    </button>
+</div>
+<p class="mt-4 text-xs text-slate-500 dark:text-slate-400">No credit card required for basic plan.</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-background-dark border-t border-slate-200 dark:border-border-dark py-12 px-10">
+<div class="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-3">
+<div class="size-6 text-slate-400 dark:text-slate-500">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z" fill="currentColor"></path>
+</svg>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm">© 2024 EV Mate Japan. All rights reserved.</p>
+</div>
+<div class="flex gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary text-sm" href="#">Privacy Policy</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary text-sm" href="#">Terms of Service</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary text-sm" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+</body></html>
