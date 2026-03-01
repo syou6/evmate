@@ -70,7 +70,7 @@ export async function GET(request: NextRequest) {
             display_name: vehicle.display_name,
             color: vehicle.color,
           },
-          { onConflict: "vin" }
+          { onConflict: "user_id,vin" }
         );
       }
     } catch {

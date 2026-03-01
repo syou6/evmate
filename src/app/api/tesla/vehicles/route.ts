@@ -26,7 +26,7 @@ export async function GET() {
             display_name: vehicle.display_name,
             color: vehicle.color,
           },
-          { onConflict: "vin" }
+          { onConflict: "user_id,vin" }
         );
       }
     }
